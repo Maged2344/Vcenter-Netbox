@@ -47,9 +47,9 @@ comparison/
 
 - Python **3.9+**
 - Install dependencies:
-  \`\`\`bash
+  ```bash
   pip install pyvmomi pynetbox
-  \`\`\`
+  ```
 
 ---
 
@@ -58,10 +58,10 @@ comparison/
 - **vCenter**: Read-Only account (hosts, networks, datastores)
 - **NetBox**: API Token with read access to DCIM & IPAM
 - Disable SSL verification (if using self-signed certs):
-  \`\`\`bash
+  ```bash
   export VCENTER_VERIFY_SSL=false
   export NETBOX_VERIFY_SSL=false
-  \`\`\`
+  ```
 
 ---
 
@@ -84,12 +84,12 @@ Create the following **custom fields** on your ESXi hosts in NetBox:
 Edit config in one of 3 ways:
 
 #### ➤ A. In-file (\`CONFIG — EDIT THESE\`)
-\`\`\`bash
+```bash
 python vcenter_netbox_host_compare.py
-\`\`\`
+```
 
 #### ➤ B. Environment Variables
-\`\`\`bash
+```bash
 export VCENTER_HOST="vcenter.corp.tld"
 export VCENTER_USER="administrator@vsphere.local"
 export VCENTER_PASS="********"
@@ -99,10 +99,10 @@ export NB_DEVICE_ROLE_SLUG="esxi-host"
 export NAME_MATCH_MODE="short"  # or fqdn / lowercase
 
 python vcenter_netbox_host_compare.py
-\`\`\`
+```
 
 #### ➤ C. CLI Flags
-\`\`\`bash
+```bash
 python vcenter_netbox_host_compare.py \
   --vcenter-host vcenter.corp.tld \
   --vcenter-user administrator@vsphere.local \
@@ -113,7 +113,7 @@ python vcenter_netbox_host_compare.py \
   --name-match-mode short \
   --output-html report.html \
   --output-json report.json
-\`\`\`
+```
 
 ---
 
@@ -151,26 +151,26 @@ Automate host comparison using Ansible.
 - Python **3.8+**
 - Ansible **2.15+**
 - Python packages:
-  \`\`\`bash
+  ```bash
   pip install pyvmomi pynetbox jmespath
-  \`\`\`
+  ```
 - Required collections:
-  \`\`\`bash
+  ```bash
   ansible-galaxy collection install community.vmware community.general
-  \`\`\`
+  ```
 
 ---
 
 ### 📁 Inventory Example (\`inventory.ini\`)
-\`\`\`ini
+```ini
 [local]
 localhost ansible_connection=local
-\`\`\`
+```
 
 ---
 
 ### 📝 Configuration (\`defaults/main.yml\`)
-\`\`\`yaml
+```yaml
 # vCenter credentials
 vcenter_hostname: "vcenter.example.com"
 vcenter_username: "administrator@vsphere.local"
@@ -182,20 +182,20 @@ netbox_token: "your-api-token"
 
 # Output
 report_output: "/tmp/vcenter_netbox_report.html"
-\`\`\`
+```
 
 ---
 
 ### ▶️ Run the Playbook
 
-\`\`\`bash
+```bash
 ansible-playbook -i inventory.ini playbook.yml
-\`\`\`
+```
 
 🧾 Result:
-\`\`\`
+```
 /tmp/vcenter_netbox_report.html
-\`\`\`
+```
 
 ---
 
@@ -210,9 +210,9 @@ ansible-playbook -i inventory.ini playbook.yml
 ## 💡 Tips & Notes
 
 - Use \`NB_NAME_ALIASES\` for custom name mapping:
-  \`\`\`bash
+  ```bash
   export NB_NAME_ALIASES='{"esx01.corp.tld":"esx01-prod"}'
-  \`\`\`
+  ```
 - Set \`NB_SITE_SLUG\` to limit scope by site
 - Standard vSwitch only for VLAN check (no DVSwitch trunk detection)
 - Set untagged VLAN on NetBox \`vmk*\` interfaces to enable comparison
