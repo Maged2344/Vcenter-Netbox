@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>vCenter vs NetBox Host Comparison</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: #2c3e50; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+    th, td { border: 1px solid #ddd; padding: 8px; }
+    th { background: #34495e; color: white; }
+    tr:nth-child(even) { background: #f2f2f2; }
+    .ok { color: green; font-weight: bold; }
+    .fail { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>vCenter vs NetBox Host Comparison Report</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Host</th>
+        <th>CPU</th>
+        <th>Memory</th>
+        <th>Disks</th>
+        <th>Network & VLAN Issues</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for host in final_results %}
+      <tr>
+        <td>{{ host.name }}</td>
+        <td class="{{ 'ok' if host.cpu_match else 'fail' }}">
+          {{ 'Match' if host.cpu_match else 'Mismatch' }}
+        </td>
+        <td class="{{ 'ok' if host.mem_match else 'fail' }}">
+          {{ 'Match' if host.mem_match else 'Mismatch' }}
+        </td>
+        <td class="{{ 'ok' if host.disk_match else 'fail' }}">
+          {{ 'Match' if host.disk_match else 'Mismatch' }}
+        </td>
+        <td>
+          {% if host.network_issues and host.network_issues|length > 0 %}
+            <ul>
+              {% for issue in host.network_issues %}
+                <li class="fail">{{ issue }}</li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <span class="ok">All NICs & VLANs match</span>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>vCenter vs NetBox Host Comparison</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: #2c3e50; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+    th, td { border: 1px solid #ddd; padding: 8px; }
+    th { background: #34495e; color: white; }
+    tr:nth-child(even) { background: #f2f2f2; }
+    .ok { color: green; font-weight: bold; }
+    .fail { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>vCenter vs NetBox Host Comparison Report</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Host</th>
+        <th>CPU</th>
+        <th>Memory</th>
+        <th>Disks</th>
+        <th>Network & VLAN Issues</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for host in final_results %}
+      <tr>
+        <td>{{ host.name }}</td>
+        <td class="{{ 'ok' if host.cpu_match else 'fail' }}">
+          {{ 'Match' if host.cpu_match else 'Mismatch' }}
+        </td>
+        <td class="{{ 'ok' if host.mem_match else 'fail' }}">
+          {{ 'Match' if host.mem_match else 'Mismatch' }}
+        </td>
+        <td class="{{ 'ok' if host.disk_match else 'fail' }}">
+          {{ 'Match' if host.disk_match else 'Mismatch' }}
+        </td>
+        <td>
+          {% if host.network_issues and host.network_issues|length > 0 %}
+            <ul>
+              {% for issue in host.network_issues %}
+                <li class="fail">{{ issue }}</li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <span class="ok">All NICs & VLANs match</span>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

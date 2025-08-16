@@ -1,0 +1,91 @@
+---
+# tasks/main.yml
+# This role connects to vCenter and NetBox, gathers host info, compares,
+# and generates an HTML report.
+
+- name: Gather host info from vCenter
+  community.vmware.vmware_host_facts:
+    hostname: "{{ vcenter_hostname }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    validate_certs: no
+  delegate_to: localhost
+  register: vcenter_hosts
+
+- name: Gather all hosts from NetBox
+  uri:
+    url: "{{ netbox_url }}/api/dcim/devices/?role=host"
+    method: GET
+    headers:
+      Authorization: "Token {{ netbox_token }}"
+      Content-Type: "application/json"
+    return_content: yes
+    validate_certs: no
+  register: netbox_hosts
+  delegate_to: localhost
+
+
+- name: Build comparison data
+  set_fact:
+    comparison_results: >-
+      {{
+        vcenter_hosts.hosts | map('extract', {
+          'facts': 'facts'
+        }) | list
+        | json_query('[].{name: facts.config.name,
+                         cpu: facts.hardware.cpuInfo.numCpuThreads,
+                         memory: facts.hardware.memorySize,
+                         disks: facts.hardware.datastore,
+                         nics: facts.hardware.net}')
+      }}
+
+- name: Compare vCenter with NetBox
+  set_fact:
+    final_results: >-
+      {%- set results = [] -%}
+      {%- for vc_host in comparison_results -%}
+        {%- set nb_host = (netbox_hosts.devices | selectattr('name', 'equalto', vc_host.name) | first) -%}
+        {%- if nb_host -%}
+          {%- set cpu_match = (vc_host.cpu == nb_host.vcpus) -%}
+          {%- set mem_match = (vc_host.memory == nb_host.memory) -%}
+          {%- set disk_match = true -%}   # placeholder, can expand with datastore size comparison
+          
+          {# ---- Network + VLAN comparison ---- #}
+          {%- set nic_mismatches = [] -%}
+          {%- for nic in vc_host.nics -%}
+            {%- set nb_iface = (nb_host.interfaces | selectattr('name', 'equalto', nic.device) | first) -%}
+            {%- if not nb_iface -%}
+              {%- set _ = nic_mismatches.append("Missing NIC " ~ nic.device ~ " in NetBox") -%}
+            {%- else -%}
+              {%- if nic.macAddress != nb_iface.mac_address -%}
+                {%- set _ = nic_mismatches.append("MAC mismatch for " ~ nic.device ~ ": VC=" ~ nic.macAddress ~ " NB=" ~ nb_iface.mac_address) -%}
+              {%- endif -%}
+              {%- set nb_ips = nb_iface.ip_addresses | map(attribute='address') | list -%}
+              {%- if nic.ipAddresses is defined and nic.ipAddresses|default([]) | difference(nb_ips) | length > 0 -%}
+                {%- set _ = nic_mismatches.append("IP mismatch for " ~ nic.device ~ ": VC=" ~ nic.ipAddresses|join(',') ~ " NB=" ~ nb_ips|join(',')) -%}
+              {%- endif -%}
+              {%- if nic.portgroup is defined and nb_iface.untagged_vlan is defined -%}
+                {%- if nic.portgroup.vlanId|string != nb_iface.untagged_vlan.vid|string -%}
+                  {%- set _ = nic_mismatches.append("VLAN mismatch for " ~ nic.device ~ ": VC=" ~ nic.portgroup.vlanId ~ " NB=" ~ nb_iface.untagged_vlan.vid) -%}
+                {%- endif -%}
+              {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+
+          {%- set result = {
+            'name': vc_host.name,
+            'cpu_match': cpu_match,
+            'mem_match': mem_match,
+            'disk_match': disk_match,
+            'network_issues': nic_mismatches
+          } -%}
+          {%- set _ = results.append(result) -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {{ results }}
+
+- name: Generate HTML report
+  template:
+    src: report.html.j2
+    dest: "{{ report_output_path }}"
+  delegate_to: localhost

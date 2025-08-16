@@ -1,0 +1,13 @@
+---
+# vCenter connection
+vcenter_hostname: "sdpvvcb1001.infra.dev.pndrs.de"    # TODO: change me
+vcenter_username: "qd0330@infra.dev.pndrs.de" # TODO: change me
+vcenter_password: "change me"                 # TODO: change me
+
+# NetBox connection
+netbox_url: "https://netbox-black.bare.pandrosion.org/"   # TODO: change me
+netbox_token: "change me"           # TODO: change me
+
+# Report output
+compare_output_file: "/tmp/vcenter_netbox_report.html"
+report_output_path: "/tmp/vcenter_netbox_report"  # Base path for report files

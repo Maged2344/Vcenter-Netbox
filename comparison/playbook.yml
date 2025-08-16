@@ -1,0 +1,6 @@
+---
+- name: Compare vCenter and NetBox Hosts
+  hosts: localhost
+  gather_facts: false
+  roles:
+    - role: vcenter_netbox_host_compare

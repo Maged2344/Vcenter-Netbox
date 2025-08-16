@@ -1,0 +1,31 @@
+---
+# vars file for vcenter_netbox_host_compare
+# Global variables for ipa_fw_check.yml
+
+# TODO: Map your environments/AZs to the list of IPA servers.
+ipa_servers:
+  VE_AZ1: ["demfra13-z1-b7", "demfra13-z1-b8"]
+  VE_AZ2: ["demfra13-z2-b7", "demfra13-z2-b8"]
+  APP_PROD_DE_AZ1: ["dember1-z1-b7", "dember1-z1-b8"]
+  APP_PROD_DE_AZ2: ["dember1-z2-b7", "dember1-z2-b8"]
+  DT_AZ1: ["sdpappb1002", "sdpappb1020"]
+  DT_AZ2: ["dember1-z2-b10", "dember1-z2-b11"]
+
+# TODO: Required ports/protocols per FreeIPA (from Red Hat matrix)
+# Keep a list of dicts with service, port, proto (tcp/udp).
+required_ports:
+  - { service: "HTTP",              port: 80,  proto: "tcp" }
+  - { service: "HTTPS",             port: 443, proto: "tcp" }
+  - { service: "LDAP",              port: 389, proto: "tcp" }
+  - { service: "LDAPS",             port: 636, proto: "tcp" }
+  - { service: "Kerberos",          port: 88,  proto: "tcp" }
+  - { service: "Kerberos",          port: 88,  proto: "udp" }
+  - { service: "Kerberos kpasswd",  port: 464, proto: "tcp" }
+  - { service: "Kerberos kpasswd",  port: 464, proto: "udp" }
+  - { service: "DNS",               port: 53,  proto: "tcp" }
+  - { service: "DNS",               port: 53,  proto: "udp" }
+  - { service: "NTP (optional)",    port: 123, proto: "udp" }
+
+# Timeouts (seconds)
+tcp_timeout: 3
+udp_timeout: 3
