@@ -38,7 +38,7 @@ comparison/
 │       ├── templates/report.html.j2     # ← Jinja2 template for generating HTML report
 │       ├── defaults/main.yml            # ← Default variables for the role
 │       └── README.md                    # ← Documentation for the role
-
+```
 ---
 
 ## 🔧 Option 1: Python Script (\`vcenter_netbox_host_compare.py\`)
