@@ -28,16 +28,16 @@ This repo provides **two options**:
 
 ## 📁 Repo Structure
 
-
+```bash
 comparison/
 ├── vcenter_netbox_host_compare.py        # ← Python script
 ├── playbook.yml                          # ← Ansible playbook
 ├── roles/
 │   └── vcenter_netbox_compare/
-│       ├── tasks/main.yml
-│       ├── templates/report.html.j2
-│       ├── defaults/main.yml
-│       └── README.md
+│       ├── tasks/main.yml               # ← Main tasks for comparing vCenter and NetBox hosts
+│       ├── templates/report.html.j2     # ← Jinja2 template for generating HTML report
+│       ├── defaults/main.yml            # ← Default variables for the role
+│       └── README.md                    # ← Documentation for the role
 
 ---
 
