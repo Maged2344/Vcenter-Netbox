@@ -28,7 +28,7 @@ This repo provides **two options**:
 
 ## 📁 Repo Structure
 
-\`\`\`
+
 comparison/
 ├── vcenter_netbox_host_compare.py        # ← Python script
 ├── playbook.yml                          # ← Ansible playbook
@@ -38,7 +38,6 @@ comparison/
 │       ├── templates/report.html.j2
 │       ├── defaults/main.yml
 │       └── README.md
-\`\`\`
 
 ---
 
