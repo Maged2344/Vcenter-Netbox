@@ -56,11 +56,11 @@ CLIENTS = [
 # TODO: IPA servers per environment/AZ. Add/adjust as needed.
 IPA_SERVERS = {
     # VE
-    "VE_AZ1": ["demfra13-z1-b7", "demfra13-z1-b8"],
-    "VE_AZ2": ["demfra13-z2-b7", "demfra13-z2-b8"],
-    # APP PROD DE
-    "APP_PROD_DE_AZ1": ["dember1-z1-b7", "dember1-z1-b8"],
-    "APP_PROD_DE_AZ2": ["dember1-z2-b7", "dember1-z2-b8"],
+    # "VE_AZ1": ["demfra13-z1-b7", "demfra13-z1-b8"],
+    # "VE_AZ2": ["demfra13-z2-b7", "demfra13-z2-b8"],
+    # # APP PROD DE
+    # "APP_PROD_DE_AZ1": ["dember1-z1-b7", "dember1-z1-b8"],
+    # "APP_PROD_DE_AZ2": ["dember1-z2-b7", "dember1-z2-b8"],
     # DT (example from your note)
     "DT_AZ1": ["sdpappb1002", "sdpappb1020"],
     "DT_AZ2": ["dember1-z2-b10", "dember1-z2-b11"],
@@ -149,18 +149,15 @@ def ssh_run(client: Client, cmd: str, timeout: int = 10):
 # ---------------------------
 
 def check_tcp_from_client(client: Client, server: str, port: int) -> bool:
-    cmd = (
-        f"bash -lc 'timeout {TCP_TIMEOUT} bash -lc "</dev/tcp/{server}/{port}" >/dev/null 2>&1'"
-    )
+    cmd = f"bash -lc 'timeout {TCP_TIMEOUT} bash -c \">/dev/tcp/{server}/{port}\" >/dev/null 2>&1'"
     rc, _, _ = ssh_run(client, cmd, timeout=TCP_TIMEOUT + 5)
     return rc == 0
 
 def check_udp_from_client(client: Client, server: str, port: int) -> bool:
-    cmd = (
-        f"bash -lc 'timeout {UDP_TIMEOUT} bash -lc "echo ping > /dev/udp/{server}/{port}" >/dev/null 2>&1'"
-    )
+    cmd = f"bash -lc 'timeout {UDP_TIMEOUT} bash -c \"echo ping >/dev/udp/{server}/{port}\" >/dev/null 2>&1'"
     rc, _, _ = ssh_run(client, cmd, timeout=UDP_TIMEOUT + 5)
     return rc == 0
+
 
 
 # ---------------------------

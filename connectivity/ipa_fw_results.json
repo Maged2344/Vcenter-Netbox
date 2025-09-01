@@ -1,0 +1,722 @@
+{
+  "demfra13-z1-app1": {
+    "meta": {
+      "user": "cloudadmin",
+      "bastion": null
+    },
+    "checks": [
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "HTTP",
+        "port": 80,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "HTTPS",
+        "port": 443,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "LDAP",
+        "port": 389,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "LDAPS",
+        "port": 636,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "Kerberos",
+        "port": 88,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "Kerberos",
+        "port": 88,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "Kerberos kpasswd",
+        "port": 464,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "Kerberos kpasswd",
+        "port": 464,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "DNS",
+        "port": 53,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "DNS",
+        "port": 53,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "NTP (optional)",
+        "port": 123,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "HTTP",
+        "port": 80,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "HTTPS",
+        "port": 443,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "LDAP",
+        "port": 389,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "LDAPS",
+        "port": 636,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "Kerberos",
+        "port": 88,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "Kerberos",
+        "port": 88,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "Kerberos kpasswd",
+        "port": 464,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "Kerberos kpasswd",
+        "port": 464,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "DNS",
+        "port": 53,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "DNS",
+        "port": 53,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "NTP (optional)",
+        "port": 123,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "HTTP",
+        "port": 80,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "HTTPS",
+        "port": 443,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "LDAP",
+        "port": 389,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "LDAPS",
+        "port": 636,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "Kerberos",
+        "port": 88,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "Kerberos",
+        "port": 88,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "Kerberos kpasswd",
+        "port": 464,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "Kerberos kpasswd",
+        "port": 464,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "DNS",
+        "port": 53,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "DNS",
+        "port": 53,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "NTP (optional)",
+        "port": 123,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "HTTP",
+        "port": 80,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "HTTPS",
+        "port": 443,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "LDAP",
+        "port": 389,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "LDAPS",
+        "port": 636,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "Kerberos",
+        "port": 88,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "Kerberos",
+        "port": 88,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "Kerberos kpasswd",
+        "port": 464,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "Kerberos kpasswd",
+        "port": 464,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "DNS",
+        "port": 53,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "DNS",
+        "port": 53,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "NTP (optional)",
+        "port": 123,
+        "proto": "udp",
+        "ok": false
+      }
+    ]
+  },
+  "demfra13-z1-app2": {
+    "meta": {
+      "user": "cloudadmin",
+      "bastion": "bastion.mycorp.local"
+    },
+    "checks": [
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "HTTP",
+        "port": 80,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "HTTPS",
+        "port": 443,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "LDAP",
+        "port": 389,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "LDAPS",
+        "port": 636,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "Kerberos",
+        "port": 88,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "Kerberos",
+        "port": 88,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "Kerberos kpasswd",
+        "port": 464,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "Kerberos kpasswd",
+        "port": 464,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "DNS",
+        "port": 53,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "DNS",
+        "port": 53,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1002",
+        "service": "NTP (optional)",
+        "port": 123,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "HTTP",
+        "port": 80,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "HTTPS",
+        "port": 443,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "LDAP",
+        "port": 389,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "LDAPS",
+        "port": 636,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "Kerberos",
+        "port": 88,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "Kerberos",
+        "port": 88,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "Kerberos kpasswd",
+        "port": 464,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "Kerberos kpasswd",
+        "port": 464,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "DNS",
+        "port": 53,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "DNS",
+        "port": 53,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ1",
+        "server": "sdpappb1020",
+        "service": "NTP (optional)",
+        "port": 123,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "HTTP",
+        "port": 80,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "HTTPS",
+        "port": 443,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "LDAP",
+        "port": 389,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "LDAPS",
+        "port": 636,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "Kerberos",
+        "port": 88,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "Kerberos",
+        "port": 88,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "Kerberos kpasswd",
+        "port": 464,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "Kerberos kpasswd",
+        "port": 464,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "DNS",
+        "port": 53,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "DNS",
+        "port": 53,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b10",
+        "service": "NTP (optional)",
+        "port": 123,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "HTTP",
+        "port": 80,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "HTTPS",
+        "port": 443,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "LDAP",
+        "port": 389,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "LDAPS",
+        "port": 636,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "Kerberos",
+        "port": 88,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "Kerberos",
+        "port": 88,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "Kerberos kpasswd",
+        "port": 464,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "Kerberos kpasswd",
+        "port": 464,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "DNS",
+        "port": 53,
+        "proto": "tcp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "DNS",
+        "port": 53,
+        "proto": "udp",
+        "ok": false
+      },
+      {
+        "env": "DT_AZ2",
+        "server": "dember1-z2-b11",
+        "service": "NTP (optional)",
+        "port": 123,
+        "proto": "udp",
+        "ok": false
+      }
+    ]
+  }
+}
