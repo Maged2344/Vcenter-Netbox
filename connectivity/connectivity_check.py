@@ -34,6 +34,7 @@ from datetime import datetime
 from typing import Dict, List, Optional, Tuple
 
 import paramiko
+from paramiko.proxy import ProxyCommand  # Add at the top
 
 
 # ---------------------------
@@ -121,7 +122,7 @@ def ssh_run(client: Client, cmd: str, timeout: int = 10):
     sock = None
     if client.bastion:
         bastion_cmd = f"ssh -W %h:%p {client.user}@{client.bastion}"
-        sock = paramiko.ProxyCommand(bastion_cmd)
+        sock = ProxyCommand(bastion_cmd)
 
     try:
         ssh.connect(

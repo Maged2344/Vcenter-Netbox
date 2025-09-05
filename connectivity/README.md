@@ -28,7 +28,7 @@ pip install paramiko
 ```
 
 ### 2) Configure
-Open `ipa_fw_connectivity_check.py` and edit the **CONFIG — EDIT THESE** section:
+Open `connectivity_check.py` and edit the **CONFIG — EDIT THESE** section:
 
 - `CLIENTS`: IPA client hosts with SSH user, key, and (optional) `bastion`.
 - `IPA_SERVERS`: map each environment/AZ to its IPA servers.
@@ -40,7 +40,7 @@ Open `ipa_fw_connectivity_check.py` and edit the **CONFIG — EDIT THESE** secti
 
 ### 3) Run
 ```bash
-python ipa_fw_connectivity_check.py
+python connectivity_check.py
 ```
 
 ### 4) Results
